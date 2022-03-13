@@ -180,7 +180,7 @@ header .nav-items {
   height: 37.5rem;
   overflow: hidden;
   transition: all ease-in-out 0.5s;
-  background-image: url(../images/slider/1.jpg);
+  /*background-image: "assets/images/homestudent.jpg";*/
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
@@ -783,4 +783,7 @@ footer {
         margin: 0 0.625rem;
         color: #ddd; }
 
+.donation-button{
+  
+}
 /*# sourceMappingURL=style.css.map */

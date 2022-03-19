@@ -184,7 +184,7 @@ header .nav-items {
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  padding: 3.125rem 0; }
+  padding: 1.5rem 0; }
   .banner .wrapper {
     position: relative;
     display: inline-block;
@@ -783,7 +783,28 @@ footer {
         margin: 0 0.625rem;
         color: #ddd; }
 
-.donation-button{
-  
-}
+
 /*# sourceMappingURL=style.css.map */
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: grey;
+  background-color: transparent;
+  text-decoration: underline;
+}

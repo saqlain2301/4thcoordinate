@@ -51,7 +51,7 @@ header .my-nav {
   padding-left: 15px; }
 header .sub-01 {
   position: relative;
-  background: #fd580b; }
+  background: #815B3E; }
 header .nav-items {
   display: flex;
   flex-wrap: wrap;
@@ -79,7 +79,7 @@ header .nav-items {
       height: 0.125rem;
       transition: ease-in-out 0.1s;
       box-shadow: 0 2px 5px rgba(255, 255, 255, 0.6);
-      background: #fd580b;
+      background: #815B3E;
       position: relative; }
       header .nav-items .menu-toggle .menu-hamburger.active {
         background: rgba(0, 0, 0, 0);
@@ -95,7 +95,7 @@ header .nav-items {
         height: 0.125rem;
         transition: ease-in-out 0.1s;
         box-shadow: 0 2px 5px rgba(255, 255, 255, 0.6);
-        background: #fd580b;
+        background: #815B3E;
         transform: translatey(-0.625rem); }
       header .nav-items .menu-toggle .menu-hamburger::after {
         position: absolute;
@@ -104,7 +104,7 @@ header .nav-items {
         height: 0.125rem;
         transition: ease-in-out 0.1s;
         box-shadow: 0 2px 5px rgba(255, 255, 255, 0.6);
-        background: #fd580b;
+        background: #815B3E;
         transform: translatey(0.625rem); }
   header .nav-items .logo {
     width: 30%;
@@ -156,7 +156,7 @@ header .nav-items {
           padding: 0 1.25rem;
           font-weight: 700; }
           header .nav-items .menu-items .menu ul li a:hover {
-            color: #fd580b; }
+            color: #815B3E; }
           @media screen and (max-width: 767.98px) {
             header .nav-items .menu-items .menu ul li a {
               padding: 0rem; } }
@@ -207,7 +207,7 @@ header .nav-items {
       color: #fff; }
     .banner .wrapper ol li {
       display: inline-block;
-      background-color: #fd580b;
+      background-color: #815B3E;
       font-size: 1rem;
       color: #fff;
       padding: .625rem;
@@ -245,7 +245,7 @@ header .nav-items {
         .bg-01 .wrapper .content ol li i {
           display: block;
           font-size: 2.5rem;
-          color: #fd580b; }
+          color: #815B3E; }
         .bg-01 .wrapper .content ol li h3 {
           font-size: 1.25rem;
           color: #222222;
@@ -290,7 +290,7 @@ header .nav-items {
         font-size: .8125rem; }
         .bg-02 .wrapper .bs ol li i {
           margin: 0 .625rem 0 0;
-          color: #fd580b; }
+          color: #815B3E; }
 
 .bg-03 {
   position: relative;
@@ -308,7 +308,7 @@ header .nav-items {
         display: block; }
         .bg-03 .wrapper .content ol li i {
           font-size: 1.875rem;
-          color: #fd580b;
+          color: #815B3E;
           margin: .625rem 0;
           display: block; }
         .bg-03 .wrapper .content ol li h3 {
@@ -433,7 +433,7 @@ header .nav-items {
             transition: 0.6s;
             height: 30px;
             width: 30px;
-            background: #fd580b;
+            background: #815B3E;
             line-height: 30px;
             text-align: center;
             padding: 0px;
@@ -441,7 +441,7 @@ header .nav-items {
             font-size: 16px;
             margin-right: 5px; }
             .bg-04 .main-team-card .team-setup .team-items .team-user-social ol li:hover {
-              color: #fd580b;
+              color: #815B3E;
               transform: translateX(-5px); }
 
 .bg-05 {
@@ -486,7 +486,7 @@ header .nav-items {
           margin: 5px 0px; }
           .bg-05 .blog-main-card .blog-sub .blog-content-section .blog-admin ol li {
             display: inline-block;
-            color: #fd580b;
+            color: #815B3E;
             font-size: 15px;
             margin: 0 5px 0 0; }
             .bg-05 .blog-main-card .blog-sub .blog-content-section .blog-admin ol li i {
@@ -536,7 +536,7 @@ header .nav-items {
       .about-001 .image-part .about-qcard i {
         font-size: 3rem;
         margin-bottom: 30px;
-        color: #fd580b; }
+        color: #815B3E; }
       .about-001 .text-part .about-qcard p,
       .about-001 .image-part .about-qcard p {
         font-weight: 600;
@@ -571,7 +571,7 @@ footer {
     color: #84878a;
     text-align: center; }
     footer .copy-right p a {
-      color: #fd580b;
+      color: #815B3E;
       padding-left: 10px;
       font-weight: bold; }
   footer .footer-content {
@@ -588,7 +588,7 @@ footer {
       display: inline-block;
       height: 30px;
       width: 30px;
-      background: #fd580b;
+      background: #815B3E;
       color: #fff;
       line-height: 30px;
       text-align: center;
@@ -602,7 +602,7 @@ footer {
         font-size: 16px; }
         footer .footer-content ol li a i {
           padding-right: 10px;
-          color: #fd580b; }
+          color: #815B3E; }
     footer .footer-content h2 {
       font-size: 20px;
       position: relative;
@@ -621,7 +621,7 @@ footer {
         width: 40px;
         line-height: 40px;
         color: #fff;
-        background: #fd580b;
+        background: #815B3E;
         text-align: center;
         top: 0;
         right: 0; }
@@ -659,7 +659,7 @@ footer {
           .bg-0-b .main-card-contact .sup-card-contact .contact-title h2::before {
             position: absolute;
             content: "";
-            background: #fd580b;
+            background: #815B3E;
             width: 100%;
             height: 3px;
             bottom: 0; }
@@ -670,7 +670,7 @@ footer {
           font-size: 16px;
           font-weight: 600; }
           .bg-0-b .main-card-contact .sup-card-contact .contact-title ol li i {
-            color: #fd580b;
+            color: #815B3E;
             padding-right: 15px; }
       .bg-0-b .main-card-contact .sup-card-contact .head-content {
         position: relative;
@@ -685,7 +685,7 @@ footer {
           .bg-0-b .main-card-contact .sup-card-contact .head-content h2::before {
             position: absolute;
             content: "";
-            background: #fd580b;
+            background: #815B3E;
             width: 100%;
             height: 3px;
             bottom: 0; }
@@ -724,7 +724,7 @@ footer {
               top: 0px;
               height: 45px;
               width: 45px;
-              background: #fd580b;
+              background: #815B3E;
               text-align: center;
               line-height: 45px;
               color: #fff;
@@ -737,7 +737,7 @@ footer {
                 position: relative;
                 top: 4px;
                 left: 5px;
-                color: #fd580b; }
+                color: #815B3E; }
           .bg-0-b .main-card-contact .sup-card-contact-0a .dived .form-group .form-control {
             padding: 10px 15px;
             margin: 30px 0px;
@@ -746,7 +746,7 @@ footer {
 
 .abt-01 {
   padding: 3.125rem 0;
-  background: #fd580b;
+  background: #815B3E;
   position: relative;
   overflow: hidden;
   z-index: 9; }

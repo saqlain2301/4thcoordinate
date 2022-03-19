@@ -180,11 +180,11 @@ header .nav-items {
   height: 37.5rem;
   overflow: hidden;
   transition: all ease-in-out 0.5s;
-  background-image: url(../images/slider/1.jpg);
+  /*background-image: "assets/images/homestudent.jpg";*/
   background-position: center;
   background-size: cover;
   background-attachment: fixed;
-  padding: 3.125rem 0; }
+  padding: 1.5rem 0; }
   .banner .wrapper {
     position: relative;
     display: inline-block;
@@ -783,4 +783,28 @@ footer {
         margin: 0 0.625rem;
         color: #ddd; }
 
+
 /*# sourceMappingURL=style.css.map */
+a:link {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:visited {
+  color: black;
+  background-color: transparent;
+  text-decoration: none;
+}
+
+a:hover {
+  color: red;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+a:active {
+  color: grey;
+  background-color: transparent;
+  text-decoration: underline;
+}

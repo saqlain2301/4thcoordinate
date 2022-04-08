@@ -29,4 +29,3 @@ $('.counting').each(function () {
     });
 
 });
-

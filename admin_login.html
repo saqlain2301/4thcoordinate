@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8" />
+    <!-- This is the minified production version of parse js -->
+    <script
+      type="text/javascript"
+      src="https://npmcdn.com/parse/dist/parse.min.js"
+    ></script>
+
+
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>4THCOORDINATE</title>
+    <link rel="stylesheet" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" href="assets/css/all.min.css">
+    <link rel="stylesheet" href="assets/css/style.css" />
+    <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
+  </head>
+  <body>
+    <h1>Admin Login</h1>
+        <input id="username" type="text" placeholder="Username" />
+        <input id="password" type="password" name="password" placeholder="Password" />
+        <button id="createButton">Log In</button>
+
+
+    
+  </body>
+  <script>
+    // Initialize Parse
+    Parse.initialize("pEI5H6qCeMJTNTzvVYYV52W6lYPNidMpOoB3ewpN", "ybrQu6Ls18Mt79VFfPO7WrfshZJrGJrsAgPlA80n"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+    Parse.serverURL = "https://parseapi.back4app.com/";
+
+    // Create a new User
+    async function createParseUser() {
+      // Creates a new Parse "User" object, which is created by default in your Parse app
+      let user = new Parse.User();
+      // Set the input values to the new "User" object
+      user.set("username", document.getElementById("username").value);
+      user.set("password", document.getElementById("password").value);
+      try {
+        // Call the save method, which returns the saved object if successful
+        user = await user.save();
+        if (user !== null) {
+          // Notify the success by getting the attributes from the "User" object, by using the get method (the id attribute needs to be accessed directly, though)
+          alert(
+            `New object created with success! ObjectId: ${
+              user.id
+            }, ${user.get("username")}`
+          );
+        }
+      } catch (error) {
+        alert(`Error: ${error.message}`);
+      }
+    }
+
+    // Add on click listener to call the create parse user function
+    async function login() {
+        var uname = document.getElementById('username').value;
+        var pass = document.getElementById('password').value;
+        try {
+          // Pass the username and new-password to logIn function
+          let user = Parse.User = await Parse.User.logIn(uname,pass);
+          // Do stuff after successful login
+          console.log('Logged in user', user);
+          if(user){
+              window.location.href='index.html'
+          }
+        } catch (error) {
+          console.error('Error while logging in user', error);
+        }
+      }
+
+      document.getElementById('createButton').addEventListener('click',async ()=>{
+        login();
+
+      });
+  </script>
+</html>

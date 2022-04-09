@@ -175,7 +175,7 @@ header .nav-items {
     background: #fff; }
 
 /* ================================ Slider CSS =============================== */
-.banner {
+.banner .bannerbig {
   position: relative;
   height: 37.5rem;
   overflow: hidden;
@@ -807,4 +807,8 @@ a:active {
   color: grey;
   background-color: transparent;
   text-decoration: underline;
+}
+
+.bannerbig {
+  height: 60%;
 }

@@ -57,8 +57,8 @@
         <div class="row">
           <div class="col-12">
             <div class="wrapper">
-              <h1>YOU CAN HELP WITH THE POOR CHILDREN</h1>
-              <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur adipisci quasi, blanditiis, quidem
+              <h1 style="color:black">YOU CAN HELP WITH THE POOR CHILDREN</h1>
+              <p style="color:black">Lorem ipsum dolor sit amet consectetur adipisicing elit. Consectetur adipisci quasi, blanditiis, quidem
                 distinctio suscipit sunt ducimus illo veritatis corporis quas! Ipsa obcaecati beatae, aut saepe aliquam
                 corrupti fugit. Cupiditate.</p>
               <ol>
@@ -83,7 +83,7 @@
                   <div class="content">
                     <ol>
                       <li class="dashed">
-                        
+
                         <a class="donation-button" href="home.html"></a><i class="fal fa-hands-usd"></i>
                         <h3>Make Donetion</h3>
                         <p>Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>
@@ -120,7 +120,7 @@
       </div>
     </section>
 
-    <!-- ======================Bg-02 started====================== 
+    <!-- ======================Bg-02 started======================
       COMMENTING THIS BLOCK FOR FUTURE USE
     <section class="bg-02">
       <div class="container">
@@ -260,23 +260,31 @@
             </div>
           </div>
 
-          
+
         </div>
       </div>
     </section>
 
-    <!-- ======================Bg-04 started====================== -->
+  <!-- ======================Bg-04 started====================== -->
+
 
     <section class="bg-04">
       <div class="container">
+
         <div class="row">
           <div class="col-12">
             <div class="heading">
               <h2>Meet Our Team</h2>
             </div>
           </div>
+            <div class="">
+                  <a href="E:\4thcoordinate\Profile.html" style="display: none;"><div id="teamButton" class="button" >Add Team</div> </a>
+
+            </div>
+          <div class="main-team-card d-flex">
 
           <div class="main-team-card d-flex" id="team">
+
 
             
           </div>
@@ -288,12 +296,15 @@
 
     <section class="bg-05">
       <div class="container">
+       <div class="row">
         <div class="col-12">
           <div class="heading">
             <h2>Latest News</h2>
           </div>
         </div>
-
+         <div class="">
+          <a href="E:\4thcoordinate\News.html" style="display: none;"><div id="newsButton" class="button"  >Add News</div> </a>
+         </div>
         <div class="blog-main-card d-flex">
           <article class="blog-sub">
             <div class="blog-content">
@@ -333,23 +344,23 @@
                   <li><i class="fal fa-user-tie"></i> By Admin</li>
                   <li><i class="fal fa-calendar-alt"></i> july 28, 2020</li>
                 </ol>
-              </div>
+              </div>0
             </div>
           </article>
 
           <article class="blog-sub">
             <div class="blog-content">
               <img src="assets/images/blog/blog_3.jpg">
-            </div>
+            </div>0
             <div class="blog-content-section">
               <div class="blo-content-title">
                 <h4>Capitalize on low hanging fruit to identify ballpark</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque at numquam, asperiores aut
+                <p>0Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque at numquam, asperiores aut
                   praesentium
                   facilis ratione! Voluptatibus neque dignissimos ipsa atque veniam sint omnis in blanditiis, nemo fugit
                   animi assumenda.</p>
               </div>
-              <div class="blog-admin">
+              <div c00lass="blog-admin">
                 <ol>
                   <li><i class="fal fa-user-tie"></i> By Admin</li>
                   <li><i class="fal fa-calendar-alt"></i> july 28, 2020</li>
@@ -359,7 +370,8 @@
           </article>
         </div>
       </div>
-    </section>
+    </div>
+  </section>
 
   </main>
 
@@ -374,9 +386,9 @@
             <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Maxime adipisci veniam
               voluptatum voluptatem sed ex error beatae, asperiores dignissimos?</p>
             <ul>
-              <li><i class="fab fa-facebook-f"></i></li>
-              <li><i class="fab fa-twitter"></i></li>
-              <li><i class="fab fa-google"></i></li>
+              <li><a href="https://www.facebook.com/4th-co-ordinate-1666455480287294/?__tn__=-UC*F" target="_blank"> <i class="fab fa-facebook-f"></i> </a></li>
+              <li><a href="https://twitter.com/4th_coordinate?s=08" target="_blank"> <i class="fab fa-twitter"></i> </a></li>
+              <li><a href="https://instagram.com/4thcoordinate?utm_medium=copy_link" target="_blank"> <i class="fab fa-instagram"></i> </a> </li>
               <li><i class="fab fa-skype"></i></li>
             </ul>
           </div>
@@ -420,8 +432,9 @@
     <div class="copy-right">
       <div class="container">
         <div class="copy-right-card">
-         <p>2022 @ All Rights Reserved Designed and developed by<a
-             href="https://saqlain2301.github.io/4thcoordinate/">4THCOORDINATE</a></p>
+         <p>2022 @ All Rights Reserved Designed and developed by
+           <a href="https://saqlain2301.github.io/4thcoordinate/">4THCOORDINATE</a>
+         </p>
         </div>
       </div>
     </div>
@@ -450,6 +463,7 @@
       function togglePopup() {
         if (document.getElementById('myForm').style.display == 'none'){
           document.getElementById('myForm').style.display = 'block'
+
         }
         else {
           document.getElementById('myForm').style.display = 'none'
@@ -480,6 +494,8 @@
         console.log('user is logged in we will enable admin options for user :' + currentUser.get('username')) ;
             document.getElementById('admin').innerHTML='Admin - '+ currentUser.get('username');
             document.getElementById('logout').style.display = 'block';
+            document.getElementById('teamButton').style.display = 'block';
+            document.getElementById('newsButton').style.display = 'block';
       }
 
 

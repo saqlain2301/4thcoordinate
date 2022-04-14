@@ -276,86 +276,9 @@
             </div>
           </div>
 
-          <div class="main-team-card d-flex">
-            <div class="team-setup">
-              <div class="team-items">
-                <div class="team-user">
-                  <img src="assets/images/team/1.jpg">
-                </div>
-                <div class="team-user-social">
-                  <ol>
-                    <li><i class="fab fa-facebook-f"></i></li>
-                    <li><i class="fab fa-twitter"></i></li>
-                    <li><i class="fab fa-google"></i></li>
-                    <li><i class="fab fa-skype"></i></li>
-                  </ol>
-                </div>
-                <div class="team-name">
-                  <h2>JOHN</h2>
-                  <b>Attorneys</b>
-                </div>
-              </div>
-            </div>
+          <div class="main-team-card d-flex" id="team">
 
-            <div class="team-setup">
-              <div class="team-items">
-                <div class="team-user">
-                  <img src="assets/images/team/2.jpg">
-                </div>
-                <div class="team-user-social">
-                  <ol>
-                    <li><i class="fab fa-facebook-f"></i></li>
-                    <li><i class="fab fa-twitter"></i></li>
-                    <li><i class="fab fa-google"></i></li>
-                    <li><i class="fab fa-skype"></i></li>
-                  </ol>
-                </div>
-                <div class="team-name">
-                  <h2>TURNER</h2>
-                  <b>Attorneys</b>
-                </div>
-              </div>
-            </div>
-
-            <div class="team-setup">
-              <div class="team-items">
-                <div class="team-user">
-                  <img src="assets/images/team/3.jpg">
-                </div>
-                <div class="team-user-social">
-                  <ol>
-                    <li><i class="fab fa-facebook-f"></i></li>
-                    <li><i class="fab fa-twitter"></i></li>
-                    <li><i class="fab fa-google"></i></li>
-                    <li><i class="fab fa-skype"></i></li>
-                  </ol>
-                </div>
-                <div class="team-name">
-                  <h2>GILBERT WILLIAMS</h2>
-                  <b>Attorneys</b>
-                </div>
-              </div>
-            </div>
-
-            <div class="team-setup">
-              <div class="team-items">
-                <div class="team-user">
-                  <img src="assets/images/team/4.jpg">
-                </div>
-                <div class="team-user-social">
-                  <ol>
-                    <li><i class="fab fa-facebook-f"></i></li>
-                    <li><i class="fab fa-twitter"></i></li>
-                    <li><i class="fab fa-google"></i></li>
-                    <li><i class="fab fa-skype"></i></li>
-                  </ol>
-                </div>
-                <div class="team-name">
-                  <h2>ANDERSON JHON</h2>
-                  <b>Attorneys</b>
-                </div>
-              </div>
-            </div>
+            
           </div>
         </div>
       </div>
@@ -601,8 +524,71 @@
         window.location.href='index.html';
       })
 
-      window.addEventListener('load',() => {
+
+      /*
+        Author : Mohammed Misbahuddin
+        Date: 12-04-2022.
+        Purpose: Get backedn data and show as team.
+
+      */
+      async function getTeam(){
+                    //user with some designation
+                    
+                    
+                    //TableA
+                    const des = new Parse.Object.extend('Designations');
+                    const desQuery = new Parse.Query('Designations');
+                    desQuery.ascending('priority');
+                    //TableB
+                    const User = new Parse.User();
+                    const query = new Parse.Query(User);
+                    query.exists('my_designation');
+            
+                    
+            
+                    
+            
+            
+                    query.matchesQuery('my_designation',desQuery);
+                    query.include('my_designation');
+                    //query.orderBy('priority');
+            
+                    try {
+                          let team_members = await query.find();
+                          for (let member of team_members){
+                            console.log(` ${member.get('Name')} | ${member.get('my_designation').get('Name')}|   ${member.get('my_designation').get('priority')} | ${member.get('image').url()}`);
+                            let html_string = 
+                            '<div class="team-setup">' +
+                            '    <div class="team-items">' +
+                            '      <div class="team-user">' +
+                            '        <img src="'+ member.get('image').url() + '">' +
+                            '      </div>' +
+                            '      <div class="team-user-social">' +
+                            '        <ol>' +
+                            '          <li><i class="fab fa-facebook-f"></i></li>' +
+                            '          <li><i class="fab fa-twitter"></i></li>' +
+                            '          <li><i class="fab fa-google"></i></li>' +
+                            '          <li><i class="fab fa-skype"></i></li>' +
+                            '        </ol>' +
+                            '      </div>' +
+                            '      <div class="team-name">' +
+                            '        <h2>'+ member.get('Name')+'</h2>' +
+                            '        <b>'+member.get('my_designation').get('Name')+'</b>' +
+                            '      </div>' +
+                            '    </div>' +
+                            '  </div>' 
+                            document.getElementById('team').innerHTML +=  html_string;
+                            
+                          }
+                          //console.log('designations :' + JSON.stringify(des));
+                        } catch (error) {
+                          console.log('Error while fetching Team', error);
+                        }
+                  }
+
+      window.addEventListener('load',(async) => {
         validateUser();
+        getTeam();
       })
 </script>
 </html>

@@ -554,10 +554,8 @@
                     //query.orderBy('priority');
             
                     try {
-                          let des = await query.find();
-                          let initial = '';
-                          for (let member of des){
-                            let img = `${member.get('image')}`;
+                          let team_members = await query.find();
+                          for (let member of team_members){
                             console.log(` ${member.get('Name')} | ${member.get('my_designation').get('Name')}|   ${member.get('my_designation').get('priority')} | ${member.get('image').url()}`);
                             let html_string = 
                             '<div class="team-setup">' +
@@ -584,7 +582,7 @@
                           }
                           //console.log('designations :' + JSON.stringify(des));
                         } catch (error) {
-                          console.log('Error while fetching designations', error);
+                          console.log('Error while fetching Team', error);
                         }
                   }
 

@@ -278,7 +278,7 @@
             </div>
           </div>
             <div class="">
-                  <a href="E:\4thcoordinate\Profile.html" style="display: none;"><div id="teamButton" class="button" >Add Team</div> </a>
+                  <a href="Profile.html" id="teamButton" style="display: none;"><div class="button" >Add Team</div> </a>
 
             </div>
           <div class="main-team-card d-flex">
@@ -286,7 +286,7 @@
           <div class="main-team-card d-flex" id="team">
 
 
-            
+
           </div>
         </div>
       </div>
@@ -303,7 +303,7 @@
           </div>
         </div>
          <div class="">
-          <a href="E:\4thcoordinate\News.html" style="display: none;"><div id="newsButton" class="button"  >Add News</div> </a>
+          <a href="News.html" id="newsButton" style="display: none;"><div  class="button"  >Add News</div> </a>
          </div>
         <div class="blog-main-card d-flex">
           <article class="blog-sub">
@@ -549,8 +549,8 @@
       */
       async function getTeam(){
                     //user with some designation
-                    
-                    
+
+
                     //TableA
                     const des = new Parse.Object.extend('Designations');
                     const desQuery = new Parse.Query('Designations');
@@ -559,21 +559,21 @@
                     const User = new Parse.User();
                     const query = new Parse.Query(User);
                     query.exists('my_designation');
-            
-                    
-            
-                    
-            
-            
+
+
+
+
+
+
                     query.matchesQuery('my_designation',desQuery);
                     query.include('my_designation');
                     //query.orderBy('priority');
-            
+
                     try {
                           let team_members = await query.find();
                           for (let member of team_members){
                             console.log(` ${member.get('Name')} | ${member.get('my_designation').get('Name')}|   ${member.get('my_designation').get('priority')} | ${member.get('image').url()}`);
-                            let html_string = 
+                            let html_string =
                             '<div class="team-setup">' +
                             '    <div class="team-items">' +
                             '      <div class="team-user">' +
@@ -592,9 +592,9 @@
                             '        <b>'+member.get('my_designation').get('Name')+'</b>' +
                             '      </div>' +
                             '    </div>' +
-                            '  </div>' 
+                            '  </div>'
                             document.getElementById('team').innerHTML +=  html_string;
-                            
+
                           }
                           //console.log('designations :' + JSON.stringify(des));
                         } catch (error) {

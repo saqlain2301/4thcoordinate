@@ -275,27 +275,10 @@
               <h2>Meet Our Team</h2>
             </div>
           </div>
-            <div id="team">
-              <div class="team-setup"> 
-                <div class="team-items"> 
-                  <div class="team-user"> 
-                    <img src=" assets/images/blog/blog_1.jpg"> 
-                  </div> 
-                  <div class="team-user-social"> 
-                    <ol> 
-                      <li><i class="fab fa-facebook-f"></i></li> 
-                      <li><i class="fab fa-twitter"></i></li> 
-                      <li><i class="fab fa-google"></i></li> 
-                      <li><i class="fab fa-skype"></i></li> 
-                    </ol> 
-                  </div> 
-                  <div class="team-name"> 
-                    <h2> member.get(Name)</h2> 
-                    <b>member.get(my_designation).get(Name)</b> 
-                  </div> 
-                </div> 
-              </div> 
-            </div>
+
+          <div class="main-team-card d-flex" id="team">
+
+            
           </div>
         </div>
       </div>
@@ -542,70 +525,72 @@
       })
 
 
-      //Author : Mohammed Misbahuddin
-      //Purpose : TO get list of users along with images
+      /*
+        Author : Mohammed Misbahuddin
+        Date: 12-04-2022.
+        Purpose: Get backedn data and show as team.
+
+      */
       async function getTeam(){
-        //user with some designation
-        
-        
-        //TableA
-        const des = new Parse.Object.extend('Designations');
-        const desQuery = new Parse.Query('Designations');
-        desQuery.ascending('priority');
-        //TableB
-        const User = new Parse.User();
-        const query = new Parse.Query(User);
-        query.exists('my_designation');
-
-        
-
-        
-
-
-        query.matchesQuery('my_designation',desQuery);
-        query.include('my_designation');
-        //query.orderBy('priority');
-
-        try {
-              let des = await query.find();
-              let initial = '';
-              for (let member of des){
-                let img = `${member.get('image')}`;
-                console.log(` ${member.get('Name')} | ${member.get('my_designation').get('Name')}|   ${member.get('my_designation').get('priority')} | ${member.get('image').url()}`);
-                let html_string = 
-                '<div class="team-setup">' +
-                '    <div class="team-items">' +
-                '      <div class="team-user">' +
-                '        <img src="'+ member.get('image').url() + '">' +
-                '      </div>' +
-                '      <div class="team-user-social">' +
-                '        <ol>' +
-                '          <li><i class="fab fa-facebook-f"></i></li>' +
-                '          <li><i class="fab fa-twitter"></i></li>' +
-                '          <li><i class="fab fa-google"></i></li>' +
-                '          <li><i class="fab fa-skype"></i></li>' +
-                '        </ol>' +
-                '      </div>' +
-                '      <div class="team-name">' +
-                '        <h2>'+ member.get('Name')+'</h2>' +
-                '        <b>'+member.get('my_designation').get('Name')+'</b>' +
-                '      </div>' +
-                '    </div>' +
-                '  </div>' 
-                document.getElementById('team').innerHTML +=  html_string;
-                
-              }
-              //console.log('designations :' + JSON.stringify(des));
-            } catch (error) {
-              console.log('Error while fetching designations', error);
-            }
-      }
-
-
+                    //user with some designation
+                    
+                    
+                    //TableA
+                    const des = new Parse.Object.extend('Designations');
+                    const desQuery = new Parse.Query('Designations');
+                    desQuery.ascending('priority');
+                    //TableB
+                    const User = new Parse.User();
+                    const query = new Parse.Query(User);
+                    query.exists('my_designation');
+            
+                    
+            
+                    
+            
+            
+                    query.matchesQuery('my_designation',desQuery);
+                    query.include('my_designation');
+                    //query.orderBy('priority');
+            
+                    try {
+                          let des = await query.find();
+                          let initial = '';
+                          for (let member of des){
+                            let img = `${member.get('image')}`;
+                            console.log(` ${member.get('Name')} | ${member.get('my_designation').get('Name')}|   ${member.get('my_designation').get('priority')} | ${member.get('image').url()}`);
+                            let html_string = 
+                            '<div class="team-setup">' +
+                            '    <div class="team-items">' +
+                            '      <div class="team-user">' +
+                            '        <img src="'+ member.get('image').url() + '">' +
+                            '      </div>' +
+                            '      <div class="team-user-social">' +
+                            '        <ol>' +
+                            '          <li><i class="fab fa-facebook-f"></i></li>' +
+                            '          <li><i class="fab fa-twitter"></i></li>' +
+                            '          <li><i class="fab fa-google"></i></li>' +
+                            '          <li><i class="fab fa-skype"></i></li>' +
+                            '        </ol>' +
+                            '      </div>' +
+                            '      <div class="team-name">' +
+                            '        <h2>'+ member.get('Name')+'</h2>' +
+                            '        <b>'+member.get('my_designation').get('Name')+'</b>' +
+                            '      </div>' +
+                            '    </div>' +
+                            '  </div>' 
+                            document.getElementById('team').innerHTML +=  html_string;
+                            
+                          }
+                          //console.log('designations :' + JSON.stringify(des));
+                        } catch (error) {
+                          console.log('Error while fetching designations', error);
+                        }
+                  }
 
       window.addEventListener('load',(async) => {
         validateUser();
-        //getTeam();
+        getTeam();
       })
 </script>
 </html>

@@ -57,51 +57,68 @@
                                            <div class="form-sup">
                                                <div class="cal-01">
                                                    <input type="name" name="name" id="name" class="form-control"
-                                                       placeholder="Enter Your Name" required>
+                                                       placeholder="Enter Your First Name" required>
                                                    <i class="fal fa-user-tie"></i>
                                                </div>
 
-                                               <div class="cal-01">
-                                                   <input type="tel" name="phone" id="number" class="form-control"
-                                                    placeholder="Phone Number"  maxlength="10" required>
-                                                   <i class="fal fa-phone"></i>
+                                                <div class="cal-01">
+                                                   <input type="userName" name="userName" id="" class="form-control"
+                                                       placeholder="Enter Your User Name" required>
+                                                    <i class="fab fa-"></i>
                                                </div>
 
-                                               <div class="cal-01">
-
-                                                   <input type="file" name="avatar" id="avatar" class="form-control"
-                                                       placeholder="Your Photo"  accept="image/x-png, image/jpeg" required>
-                                                   <i class="fab fa-image"></i>
+                                                <div class="cal-01">
+                                                   <input type="password"  name="password" id="password" class="form-control"
+                                                    placeholder="Enter Your Password"  maxlength="10" required>
+                                                   <i class="fal fa-"></i>
                                                </div>
+
+
+                                                <label for="avatar">Choose a Profile Picture:</label>
+                                                <input type="file" name="avatar" id="avatar" accept="image/x-png, image/jpeg" required>
+                                             
                                            </div>
                                        </div>
 
                                        <div class="form-group">
-                                           <div class="form-sup">
+                                           <div  class="form-sup">
+
                                                <div class="cal-01">
-                                                   <input type="Designation" name="Designation" id="" class="form-control"
-                                                       placeholder="Enter The Designation" required>
-                                                   <i class="fal fa-"></i>
+                                                   <input type="name" name="name" id="name" class="form-control"
+                                                       placeholder="Enter Your Last Name" required>
+                                                   <i class="fal fa-user-tie"></i>
                                                </div>
+
                                                <div class="cal-01">
                                                    <input type="text" name="subject" id="" class="form-control"
                                                        placeholder="Enter Your e-mail" required>
                                                    <i class="fal fa-envelope-open-text"></i>
                                                </div>
+                                              
                                                <div class="cal-01">
-                                                   <input type="Designation" name="Designation" id="" class="form-control"
-                                                       placeholder="Your Linkedin Link" required>
-                                                    <i class="fab fa-linkedin"></i>
+                                                   <input type="tel" for="phone" name="phone" id="number" class="form-control"
+                                                    placeholder="Phone Number"  maxlength="10" required>
+                                                   <i class="fal fa-phone"></i>
                                                </div>
-                                           </div>
+
+                                               <div class="cal-01">
+                                                         <label for="cars">Select a Designation:</label><br>
+                                                            <select id='designation'>
+                                                            <option value="President">President</option>
+                                                            <option value="Vice President">Vice President</option>
+                                                            <option value="General Secretary">General Secretary</option>
+                                                            <option value="Joint Secretary">Joint Secretary</option>
+                                                            <option value="Treasurer">Treasurer</option>
+                                                            <option value="Executive Member">Executive Member</option>
+                                                            </select>
+                                               </div>                                                                        
+                                            </div>
                                        </div>
-
-
+                    
 
                                        <div class="ca-ool">
-                                           <textarea name="text" cols="80" rows="6" class="form-control"
-                                               placeholder="Message" ></textarea>
-                                               <button type="submit">Submit</button>
+                                           <a href="" style="position: absolute; left: 250px;"> <div class="button" >Submit</div></a>
+                                               
                                        </div>
                                    </div>
                                </form>
@@ -121,5 +138,6 @@
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/script.js"></script>
+
 
 </html>

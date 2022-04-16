@@ -305,69 +305,8 @@
          <div class="">
           <a href="News.html" id="newsButton" style="display: none;"><div  class="button"  >Add News</div> </a>
          </div>
-        <div class="blog-main-card d-flex">
-          <article class="blog-sub">
-            <div class="blog-content">
-              <img src="assets/images/blog/blog_1.jpg">
-            </div>
-            <div class="blog-content-section">
-              <div class="blo-content-title">
-                <h4>Capitalize on low hanging fruit to identify ballpark</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque at numquam, asperiores aut
-                  praesentium
-                  facilis ratione! Voluptatibus neque dignissimos ipsa atque veniam sint omnis in blanditiis, nemo fugit
-                  animi assumenda.</p>
-              </div>
-              <div class="blog-admin">
-                <ol>
-                  <li><i class="fal fa-user-tie"></i> By Admin</li>
-                  <li><i class="fal fa-calendar-alt"></i> july 28, 2020</li>
-                </ol>
-              </div>
-            </div>
-          </article>
+        <div class="blog-main-card d-flex" id="news">
 
-          <article class="blog-sub">
-            <div class="blog-content">
-              <img src="assets/images/blog/blog_2.jpg">
-            </div>
-            <div class="blog-content-section">
-              <div class="blo-content-title">
-                <h4>Capitalize on low hanging fruit to identify ballpark</h4>
-                <p>Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque at numquam, asperiores aut
-                  praesentium
-                  facilis ratione! Voluptatibus neque dignissimos ipsa atque veniam sint omnis in blanditiis, nemo fugit
-                  animi assumenda.</p>
-              </div>
-              <div class="blog-admin">
-                <ol>
-                  <li><i class="fal fa-user-tie"></i> By Admin</li>
-                  <li><i class="fal fa-calendar-alt"></i> july 28, 2020</li>
-                </ol>
-              </div>0
-            </div>
-          </article>
-
-          <article class="blog-sub">
-            <div class="blog-content">
-              <img src="assets/images/blog/blog_3.jpg">
-            </div>0
-            <div class="blog-content-section">
-              <div class="blo-content-title">
-                <h4>Capitalize on low hanging fruit to identify ballpark</h4>
-                <p>0Lorem, ipsum dolor sit amet consectetur adipisicing elit. Neque at numquam, asperiores aut
-                  praesentium
-                  facilis ratione! Voluptatibus neque dignissimos ipsa atque veniam sint omnis in blanditiis, nemo fugit
-                  animi assumenda.</p>
-              </div>
-              <div c00lass="blog-admin">
-                <ol>
-                  <li><i class="fal fa-user-tie"></i> By Admin</li>
-                  <li><i class="fal fa-calendar-alt"></i> july 28, 2020</li>
-                </ol>
-              </div>
-            </div>
-          </article>
         </div>
       </div>
     </div>
@@ -601,10 +540,51 @@
                           console.log('Error while fetching Team', error);
                         }
                   }
+      
 
+
+      async function getNews(){
+        const News = Parse.Object.extend('News');
+        const query = new Parse.Query(News);
+        // You can also query by using a parameter of an object
+        // query.equalTo('objectId', 'xKue915KBG');
+        try {
+          const results = await query.find();
+          for (const object of results) {
+            // Access the Parse Object attributes using the .GET method
+            const headline = object.get('headline')
+            const description = object.get('description')
+            const image = object.get('image')
+            console.log('This is the news : '+ headline +' ===> ' + description + '===> '+ image.url());
+
+            let html_string = '<article class="blog-sub">' +
+                    '<div class="blog-content">'+
+                    ' <img src='+image.url()+'>'+
+                    '</div>'+
+                    '<div class="blog-content-section">'+
+                    ' <div class="blo-content-title">'+
+                        '<h4>'+headline+'</h4>'+
+                      ' <p>'+description+'</p>'+
+                      '</div>'+
+                      '<div class="blog-admin">'+
+                        '<ol>'+
+                          '<li><i class="fal fa-user-tie"></i> By Admin</li>'+
+                          '<li><i class="fal fa-calendar-alt"></i> july 28, 2020</li>'+
+                        '</ol>'+
+                    '  </div>'+
+                    '</div>'+
+                '  </article>';
+
+                document.getElementById('news').innerHTML += html_string;
+          }
+        } catch (error) {
+          console.error('Error while fetching News', error);
+        }
+      }
       window.addEventListener('load',(async) => {
         validateUser();
         getTeam();
+        getNews();
       })
 </script>
 </html>

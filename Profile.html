@@ -8,7 +8,7 @@
   <link rel="stylesheet" href="assets/css/bootstrap.min.css">
   <link rel="stylesheet" href="assets/css/all.min.css">
   <link rel="stylesheet" href="assets/css/style.css" />
-
+  <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
 </head>
 
 
@@ -51,18 +51,18 @@
 
                        <div class="sup-card-contact-0a">
                            <div class="contact-a1">
-                               <form action="mailto:ashuaib554@gmail.com" method="post" enctype="text/plain">
+                               <form>
                                    <div class="dived d-flex">
                                        <div class="form-group">
                                            <div class="form-sup">
                                                <div class="cal-01">
-                                                   <input type="name" name="name" id="name" class="form-control"
+                                                   <input type="name" name="name" id="firstname" class="form-control"
                                                        placeholder="Enter Your First Name" required>
                                                    <i class="fal fa-user-tie"></i>
                                                </div>
 
                                                 <div class="cal-01">
-                                                   <input type="userName" name="userName" id="" class="form-control"
+                                                   <input type="userName" name="userName" id="username" class="form-control"
                                                        placeholder="Enter Your User Name" required>
                                                     <i class="fab fa-"></i>
                                                </div>
@@ -84,13 +84,13 @@
                                            <div  class="form-sup">
 
                                                <div class="cal-01">
-                                                   <input type="name" name="name" id="name" class="form-control"
+                                                   <input type="name" name="name" id="lastname" class="form-control"
                                                        placeholder="Enter Your Last Name" required>
                                                    <i class="fal fa-user-tie"></i>
                                                </div>
 
                                                <div class="cal-01">
-                                                   <input type="text" name="subject" id="" class="form-control"
+                                                   <input type="text" name="subject" id="email" class="form-control"
                                                        placeholder="Enter Your e-mail" required>
                                                    <i class="fal fa-envelope-open-text"></i>
                                                </div>
@@ -104,12 +104,12 @@
                                                <div class="cal-01">
                                                          <label for="cars">Select a Designation:</label><br>
                                                             <select id='designation'>
-                                                            <option value="President">President</option>
-                                                            <option value="Vice President">Vice President</option>
-                                                            <option value="General Secretary">General Secretary</option>
-                                                            <option value="Joint Secretary">Joint Secretary</option>
-                                                            <option value="Treasurer">Treasurer</option>
-                                                            <option value="Executive Member">Executive Member</option>
+                                                                <option value="President">President</option>
+                                                                <option value="Vice President">Vice President</option>
+                                                                <option value="General Secretary">General Secretary</option>
+                                                                <option value="Joint Secretary">Joint Secretary</option>
+                                                                <option value="Treasurer">Treasurer</option>
+                                                                <option value="Executive Member">Executive Member</option>
                                                             </select>
                                                </div>                                                                        
                                             </div>
@@ -117,7 +117,7 @@
                     
 
                                        <div class="ca-ool">
-                                           <a href="" style="position: absolute; left: 250px;"> <div class="button" >Submit</div></a>
+                                           <a href="" style="position: absolute; left: 250px;"> <div class="button" id="createuser">Submit</div></a>
                                                
                                        </div>
                                    </div>
@@ -138,6 +138,47 @@
 <script src="assets/js/popper.min.js"></script>
 <script src="assets/js/bootstrap.min.js"></script>
 <script src="assets/js/script.js"></script>
+<script type="text/javascript" >
+    Parse.initialize("pEI5H6qCeMJTNTzvVYYV52W6lYPNidMpOoB3ewpN", "ybrQu6Ls18Mt79VFfPO7WrfshZJrGJrsAgPlA80n"); //PASTE HERE YOUR Back4App APPLICATION ID AND YOUR JavaScript KEY
+    Parse.serverURL = "https://parseapi.back4app.com/";
 
+
+    function validateLogin() {
+        try {
+          const currentUser = Parse.User.current();
+          if (!currentUser){
+            //show all admin options here
+            window.location.href='index.html';
+          }
+          
+        }
+        catch(error){
+          console.log('Unable to get current user : '+ error);
+        }
+      }
+
+
+    
+      document.getElementById('createuser').addEventListener('click',async  function (){
+        const firstName = document.getElementById('firstname').value;
+        const lastName = document.getElementById('lastname').value;
+        const username = document.getElementById('username').value;
+        const email = document.getElementById('email').value;
+        const password = document.getElementById('password').value;
+        const phone = document.getElementById('number').value;
+        const image = document.getElementById('avatar').value;
+        const designation = document.getElementById('designation').value;
+        const user = new Parse.User();
+        console.log('UserDate Captured: '+ firstName + lastName + '  |  ' + username + '  |  ' + email + '  |  ' + password + '  |  ' + phone + '  |  ' + designation + '  |  ' + image);
+      })
+
+      document.getElementById('avatar').onchange = function () {
+        console.log('Selected file: ' + this.value);
+        };
+
+    window.addEventListener('load',(async) => {
+        validateLogin();
+      })
+</script>
 
 </html>

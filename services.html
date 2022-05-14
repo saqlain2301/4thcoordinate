@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="assets/css/bootstrap.min.css">
     <link rel="stylesheet" href="assets/css/all.min.css">
     <link rel="stylesheet" href="assets/css/style.css" />
+    <script type="text/javascript" src="https://npmcdn.com/parse/dist/parse.min.js"></script>
 </head>
 
 <body>
@@ -133,73 +134,9 @@
           </div>
 
           <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="wrapper">
-              <figure>
-                <img src="assets/images/causes/1.jpg">
-              </figure>
-              <div class="bs">
-                <h3>First charity activity of this summer.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe sint vero
-                  dignissimos hic blanditiis neque. Distinctio dolorem eveniet nesciunt ipsum
-                  </p>
-                  <ol>
-                    <li><i class="fal fa-signal"></i>Goal: $450000</li>
-                    <li><i class="fal fa-thumbs-up"></i>Raised: $55000</li>
-                  </ol>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="wrapper">
-              <figure>
-                <img src="assets/images/causes/2.jpg">
-              </figure>
-              <div class="bs">
-                <h3>Building clean-water system for rural poor.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe sint vero
-                  dignissimos hic blanditiis neque. Distinctio dolorem eveniet nesciunt ipsum
-                </p>
-                <ol>
-                  <li><i class="fal fa-signal"></i>Goal: $450000</li>
-                  <li><i class="fal fa-thumbs-up"></i>Raised: $55000</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="wrapper">
-              <figure>
-                <img src="assets/images/causes/3.jpg">
-              </figure>
-              <div class="bs">
-                <h3>Big charity: build school for poor children.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe sint vero
-                  dignissimos hic blanditiis neque. Distinctio dolorem eveniet nesciunt ipsum
-                </p>
-                <ol>
-                  <li><i class="fal fa-signal"></i>Goal: $450000</li>
-                  <li><i class="fal fa-thumbs-up"></i>Raised: $55000</li>
-                </ol>
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-3 col-sm-6 col-xs-12">
-            <div class="wrapper">
-              <figure>
-                <img src="assets/images/causes/1.jpg">
-              </figure>
-              <div class="bs">
-                <h3>First charity activity of this summer.</h3>
-                <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Saepe sint vero
-                  dignissimos hic blanditiis neque. Distinctio dolorem eveniet nesciunt ipsum
-                </p>
-                <ol>
-                  <li><i class="fal fa-signal"></i>Goal: $450000</li>
-                  <li><i class="fal fa-thumbs-up"></i>Raised: $55000</li>
-                </ol>
-              </div>
-            </div>
-          </div>
+            <div class="wrapper" id="services">
+
+          
         </div>
       </div>
     </section>
@@ -272,8 +209,53 @@
 </body>
 
 
-<script src="assets/js/jquery-3.2.1.min.js"></script>
-<script src="assets/js/popper.min.js"></script>
-<script src="assets/js/bootstrap.min.js"></script>
-<script src="assets/js/script.js"></script>
-</html>
+<script type="text/javascript">
+
+  Parse.initialize("pEI5H6qCeMJTNTzvVYYV52W6lYPNidMpOoB3ewpN", "ybrQu6Ls18Mt79VFfPO7WrfshZJrGJrsAgPlA80n");
+  Parse.serverURL = "https://parseapi.back4app.com/";
+  
+    async function getServices(){
+    const services = Parse.Object.extend('services');
+    const query = new Parse.Query(services);
+    // You can also query by using a parameter of an object
+    // query.equalTo('objectId', 'xKue915KBG');
+    try {
+      const results = await query.find();
+      for (const object of results) {
+        // Access the Parse Object attributes using the .GET method
+        const headline = object.get('headline')
+        const description = object.get('description')
+        const img = object.get('img')
+        console.log('This is the Recent cause : '+ headline +' ===> ' + description + '===> '+ img.url());
+              let html_string = '<figure>'+
+          '<img src="assets/images/causes/1.jpg">'+
+        '</figure>'+
+        '<div class="bs">'+
+          '<h3>'+headline+'</h3>'+
+          '<p>'+description+'</p>'+
+            '<ol>'+
+              '<li><i class="fal fa-signal"></i>Goal: $450000</li>'+
+              '<li><i class="fal fa-thumbs-up"></i>Raised: $55000</li>'+
+            '</ol>'+
+        '</div>'+
+        '</div>';
+  
+        document.getElementById('services').innerHTML += html_string;
+      }
+    } catch (error) {
+      console.error('Error while fetching services', error);
+    }
+    }
+    window.addEventListener('load',(async) => {
+          getServices();
+        })
+  </script>
+  </html>
+  
+  
+  
+  
+  
+  
+  
+  
